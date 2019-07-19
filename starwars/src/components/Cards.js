@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Cards } from 'semantic-ui-react';
 
 
 
-const Cards() {
+
+const Card =(props) => {
     //Define variables with state
     //Return
-
+    return (
+        <div>{props.name}</div>
+    );
 }
 
-export default Cards;
+export default Card;
