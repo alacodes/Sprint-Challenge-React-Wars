@@ -1,14 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Card } from 'semantic-ui-react';
 
 
 
-
-const Card =(props) => {
+function IndivCard(props) {
     //Define variables with state
     //Return
-    return (
-        <div>{props.name}</div>
-    );
+    const name = props.name;
+    const gender = props.gender;
+    const homeworld = props.homeworld;
+
+    return(
+        <Card>
+            <Card.Content>
+                <Card.Header>{name}</Card.Header>
+                <Card.Meta>{gender}</Card.Meta>
+                <Card.Meta>{homeworld}</Card.Meta>
+                <Card.Description>{name} was featured in the Star Wars Franchise.</Card.Description>
+            </Card.Content>
+        </Card>
+    )
 }
 
-export default Card;
+export default IndivCard;
