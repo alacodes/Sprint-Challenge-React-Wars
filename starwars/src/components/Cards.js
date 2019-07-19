@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Grid, Card } from 'semantic-ui-react';
 
 
 
@@ -11,14 +11,16 @@ function IndivCard(props) {
     const homeworld = props.homeworld;
 
     return(
-        <Card>
-            <Card.Content>
-                <Card.Header>{name}</Card.Header>
-                <Card.Meta>{gender}</Card.Meta>
-                <Card.Meta>{homeworld}</Card.Meta>
-                <Card.Description>{name} was featured in the Star Wars Franchise.</Card.Description>
-            </Card.Content>
-        </Card>
+        <Grid.Column>
+            <Card>
+                <Card.Content>
+                    <Card.Header>Name: {name}</Card.Header>
+                    <Card.Meta>Gender: {gender}</Card.Meta>
+                    <Card.Meta>Home World: {homeworld}</Card.Meta>
+                    <Card.Description>{name} was featured in the Star Wars Franchise.</Card.Description>
+                </Card.Content>
+            </Card>
+        </Grid.Column>
     )
 }
 

@@ -3,12 +3,12 @@ import axios from 'axios';
 import IndivCard from './Cards';
 import { Grid } from 'semantic-ui-react';
 
-export default function CardGrid() {
+function CardGrid() {
   const [people, setPeople] = useState('');
   //API get
   useEffect(() => {
     axios
-      .get(`https://swapi.co/api/people/`)
+      .get("https://henry-mock-swapi.herokuapp.com/api")
       .then(results => {
         setPeople(results.data.results);
       })
@@ -18,45 +18,13 @@ export default function CardGrid() {
   if (!people) return <h1>LOADING, PLEASE WAIT</h1>;
 
   return (
-    <Grid >
+    <Grid relaxed stackable columns={3}>
         {people.map((person) => 
-          <IndivCard name={person.name} gender={person.gender}/>
+          <IndivCard key = {person.name} name={person.name} gender={person.gender} homeworld={person.homeworld} />
           )}
     </Grid>
   );
 }
 
+export default CardGrid;
 
-
-
-//based on grid example at: reactjs.org
-// const CardFramework = () => (
-//     <Grid columns={3} divided>
-//       <Grid.Row>
-//         <Grid.Column>
-//           <Image src='https://react.semantic-ui.com/images/wireframe/media-paragraph.png' />
-//         </Grid.Column>
-//         <Grid.Column>
-//           <Image src='https://react.semantic-ui.com/images/wireframe/media-paragraph.png' />
-//         </Grid.Column>
-//         <Grid.Column>
-//           <Image src='https://react.semantic-ui.com/images/wireframe/media-paragraph.png' />
-//         </Grid.Column>
-//       </Grid.Row>
-  
-//       <Grid.Row>
-//         <Grid.Column>
-//           <Image src='https://react.semantic-ui.com/images/wireframe/media-paragraph.png' />
-//         </Grid.Column>
-//         <Grid.Column>
-//           <Image src='https://react.semantic-ui.com/images/wireframe/media-paragraph.png' />
-//         </Grid.Column>
-//         <Grid.Column>
-//           <Image src='https://react.semantic-ui.com/images/wireframe/media-paragraph.png' />
-//         </Grid.Column>
-//       </Grid.Row>
-//     </Grid>
-//   )
-  
-//   export default CardFramework;
-  
